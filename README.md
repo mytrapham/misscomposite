@@ -9,7 +9,7 @@ There are 3 sets of files:
     -  type: simple, complex;
     - case: noint (case I), intctr (case II), inttrtctr (case III);
     - miss: mcar, mar1, mar2;
-    - i: 1, 2 (this is used for parallel running of the do files on UCL's Myriad in order to create 2000 simulation repetitions);
+    - i: 1, 2 (this is used for parallel running of the do files on UCL's Myriad in order to create 2000 independent simulation repetitions for each simulation scenario);
 3. ansim.do is a do file which analyses the simulation results.
 
 ### Results (results folder)
