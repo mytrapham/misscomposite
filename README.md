@@ -13,4 +13,4 @@ There are 3 sets of files:
 3. ansim.do is a do file which analyses the simulation results.
 
 ### Results (results folder)
-Datasets containing the simulation results are stored in files with naming format 'type'\_'case'\_'miss'\_'i'.dta.
+Datasets containing the simulation results are stored in files with naming format 'type'\_'case'\_'miss'\_'i'.dta. These files are analysed by ansim.do.
