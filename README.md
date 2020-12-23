@@ -2,7 +2,7 @@
 
 This repository provides Stata code for the simulation study which explores a set of strategies for handling missing values in the components of a composite endpoint.
 
- ### Stata code
+ ### Stata code (do folder)
 There are 3 sets of files:
 1. composite.ado is a programme which executes a single simulation run;
 2. Files with naming format 'type'\_'case'\_'miss'\_'i'.do are do files which create 1000 repetitions of the simulation programme in composite.ado;
@@ -12,5 +12,5 @@ There are 3 sets of files:
     - i: 1, 2 (this is used for parallel running of the do files on UCL's Myriad in order to create 2000 simulation repetitions);
 3. ansim.do is a do file which analyses the simulation results.
 
-### Results
+### Results (results folder)
 Datasets containing the simulation results are stored in files with naming format 'type'\_'case'\_'miss'\_'i'.dta.
