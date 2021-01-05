@@ -1,6 +1,6 @@
 # Analysis of a binary composite endpoint with partially observed components in randomised controlled trials: a comparison of strategies
 
-This repository provides Stata code for the simulation study which explores a set of strategies for handling missing values in the components of a composite endpoint.
+This repository provides Stata code and results of the simulation study which explores a set of strategies for handling missing values in the components of a (simple/complex) composite endpoint.
 
  ### Stata code (do folder)
 There are 3 sets of files:
