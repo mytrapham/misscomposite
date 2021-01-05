@@ -14,6 +14,6 @@ There are 3 sets of files:
 
 ### Results (results folder)
 1. Datasets containing the simulation results are stored in files with naming format 'type'\_'case'\_'miss'\_'i'.dta; these files are analysed by ansim.do. 
-2. Random number generator states for the complex composite outcome simulations are stored in files with naming format complex\_`case'\_`miss'\_rng_`i'.dta.
+2. Random-number states for the simulation runs of the complex composite endpoint are stored in files with naming format complex\_`case'\_`miss'\_rng_`i'.dta. These can be used to re-create simulation runs in which perfect prediction occurred during MI. 
 
 
