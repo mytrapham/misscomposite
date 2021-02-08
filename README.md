@@ -31,7 +31,7 @@ Statistical Software Components S455001, Boston College Department of Economics,
 
 <a id="2">[2]</a> 
 White IR (2010). 
-simsum: analyses of simulation studies including Monte Carlo error.
+simsum: Analyses of simulation studies including Monte Carlo error.
 The Stata Journal, 10(3):369–385.
 
 <a id="3">[3]</a> 
