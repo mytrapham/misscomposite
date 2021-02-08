@@ -21,7 +21,7 @@ There are 3 sets of files:
 Log files of the simulation study are stored with naming format 'type'\_'case'\_'miss'\_'i'.smcl
 
 ## Re-analysis of the TOPPS trial (misscomposite/topps_reanalysis)
-The directory misscomposite/topps_reanalysis provides Stata code (topps_reanalysis.do) for the re-analysis of the TOPPS trials (installation of ice [[3]](#3) is required). Methods for handling missing values in the components of the composite endpoint are applied in the TOPPS data. 
+The directory misscomposite/topps_reanalysis provides Stata code (topps_reanalysis.do) for the re-analysis of the TOPPS trials (installation of ice [[3]](#3) is required). Methods for handling missing values in the components of the composite endpoint are applied to the TOPPS data. 
 
 ## References
 <a id="1">[1]</a> 
