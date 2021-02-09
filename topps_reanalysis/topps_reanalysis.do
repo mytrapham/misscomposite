@@ -1,29 +1,33 @@
 ////////////////////////////////////////////////////////////////////////////////
-*Re-analysis of TOPPS
-*Authors: T M Pham & B C Kahan
-*Date: 15dec2020
+//******************************************************************************
+*Re-analysis of the TOPPS trial 
+*'A comparison of methods for analysing a binary composite endpoint with 
+*partially observed components in randomisedcontrolled trials'
+
+*Tra My Pham & Brennan C Kahan | 15dec2020
 ********************************************************************************
 *Notes:
 /*
-Variables in original TOPPS data
-bleedgrade1-30 (bleed grade 0-4, days 1-30 (grade 2-4 = outcome event))
-whograde2 (whether patient had 1+ grade 2-4 bleeds during follow-up)
-treat (treatment allocation)
-diagnosis (minimisation var)
-treatment_plan (minimisation var)
-trialno (unique trial id)
+*Variables in the original TOPPS data:
+	bleedgrade1-30 (bleed grade 0-4, days 1-30 (grade 2-4 = outcome event))
+	whograde2 (whether patient had 1+ grade 2-4 bleeds during follow-up)
+	treat (treatment allocation)
+	diagnosis (minimisation var)
+	treatment_plan (minimisation var)
+	trialno (unique trial id)
 
-Non-convergence occured for MI compn by trt implemented by -mi impute chained-; 
+*Non-convergence occured for MI compn by trt implemented by -mi impute chained-; 
 alternatives considered include:
 	- Using -ice- instead of -mi impute chained-;
-	- Conditioning on 2 neighbouring blocks in -mi impute chained-
+	- Conditioning on 2 neighbouring blocks in -mi impute chained-.
+
+*Installation of -ice- and -metan- is required.
 */
 ////////////////////////////////////////////////////////////////////////////////
 
 
 version 15
 
-ssc install ice
 
 clear *
 
@@ -31,8 +35,8 @@ set rng mt64
 set seed 21758
 
 //Define paths
-local datapath "C:\Users\wew584\Documents\Work\2_Studies\TOPPS\Data"
-local outputpath "C:\Users\wew584\Dropbox\Methodology\9_16 Missing composites (Tra)"
+*local datapath [insert datapath]
+*local outputpath [insert outputpath]
 
 //Log output
 cap log close
@@ -484,10 +488,13 @@ else	{
 
 
 
-/*Approach 2: 
-- Each block is set to missing if bleeding status is missing for at least 3 days
-- Each block takes value 1 if bleeding occurs on at least 1 day
-*/
+
+
+
+	/*Approach 2: 
+	- Each block is set to missing if bleeding status is missing for at least 3 days
+	- Each block takes value 1 if bleeding occurs on at least 1 day
+	*/
 
 use "`outputpath'\topps_data_formi.dta", clear
 
@@ -893,3 +900,60 @@ postclose `postseed'
 
 
 log close
+
+
+
+
+
+
+
+
+
+
+	/*Produce graphs for approaches 1 & 2*/
+cd "`outputpath'"
+use topps_reanalysis, clear
+
+gen meth = 1 if method == "CRA"
+replace meth = 2 if method == "Deriv"
+replace meth = 3 if method == "MI-CRA"
+replace meth = 4 if method == "MI-Deriv"
+replace meth = 5 if method == "MI compn main"
+replace meth = 6 if method == "MI compn by trt"
+replace meth = 7 if method == "MI compn by trt ice"
+replace meth = 8 if method == "MI compn by trt cond2"
+
+lab def meth 1 "CRA" 2 "Deriv" 3 "MI–CRA" 4 "MI–Deriv" 5 "MIC–main" 6 "MIC–trt 1" ///
+			 7 "MIC–trt 2" 8 "MIC–trt 3"
+	 
+lab val meth meth
+lab var meth "Method"
+
+lab def approach 1 "Approach 1" 2 "Approach 2"
+lab val approach approach
+
+//Create rows with missing values for MIC–trt 1 in approach 1 (convergence not achieved)
+expand 2 if approach == 2 & meth == 6
+replace approach = 1 if _n > 30
+replace b_trt = . if approach == 1 & meth == 6
+replace ul_trt= . if approach == 1 & meth == 6
+replace ll_trt= . if approach == 1 & meth == 6
+replace p= . if approach == 1 & meth == 6
+sort approach meth
+
+//Meta-analysis style graph for approach 1
+metan b_trt ll_trt ul_trt if approach == 1 & param == "Risk diff", label(namevar = meth) nooverall nohet  norsample ///
+	effect("Risk difference") keepall keeporder forestplot(xlab(-0.1(0.05)0.2) nlineopts(lw(vthin) lp(shortdash)) dp(3)  pointopts(msym(o) msize(medsmall)) nobox tit("Approach 1"))   
+	
+graph save metanstyle_app1.gph, replace
+  
+//Meta-analysis style graph for approach 2
+metan b_trt ll_trt ul_trt if approach == 2 & param == "Risk diff", label(namevar = meth) nooverall nohet  norsample ///
+	effect("Risk difference") keepall keeporder forestplot(xlab(-0.1(0.05)0.2) nlineopts(lw(vthin) lp(shortdash)) dp(3)  pointopts(msym(o) msize(medsmall)) nobox tit("Approach 2"))  
+
+graph save metanstyle_app2.gph, replace
+
+graph combine metanstyle_app1.gph metanstyle_app2.gph, col(1)
+graph save metanstyle_topps.gph, replace
+
+graph export metanstyle_topps.pdf, replace
