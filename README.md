@@ -21,7 +21,7 @@ There are 3 sets of files:
 Log files of the simulation study are stored with naming format 'type'\_'case'\_'miss'\_'i'.smcl
 
 ## Re-analysis of the TOPPS trial (misscomposite/topps_reanalysis)
-The directory misscomposite/topps_reanalysis provides Stata code (topps_reanalysis.do) for the re-analysis of the TOPPS trials (installation of ice [[3]](#3) is required). Methods for handling missing values in the components of the composite endpoint are applied to the TOPPS data. 
+The directory misscomposite/topps_reanalysis provides Stata code (topps_reanalysis.do) for the re-analysis of the TOPPS trials (installation of ice [[3]](#3) and metan [[4]](#4) is required). Methods for handling missing values in the components of the composite endpoint are applied to the TOPPS data. 
 
 ## References
 <a id="1">[1]</a> 
@@ -36,5 +36,10 @@ The Stata Journal, 10(3):369–385.
 
 <a id="3">[3]</a> 
 Royston P, White IR (2011). 
-Multiple imputation by chained equations (MICE): Implementation in Stata
+Multiple imputation by chained equations (MICE): Implementation in Stata.
 Journal of Statistical Software, 45(4), 2011.
+
+<a id="4">[4]</a> 
+Fisher D, Harris R, Bradburn M, Deeks J, Harbord R, Altman D, Steichen T, Sterne J, Higgins J (2006). 
+METAN: Stata module for fixed and random effects meta-analysis.
+Statistical Software Components S456798, Boston College Department of Economics, revised 07 Dec 2020.
