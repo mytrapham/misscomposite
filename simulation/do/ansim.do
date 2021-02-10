@@ -7,7 +7,8 @@
 * Installation of -simsum- is required.
 ********************************************************************************
 
-cd "\\ad.ucl.ac.uk\home9\zcakf79\DesktopSettings\Desktop\20210204\stata_output"
+//Change directory to where the simulation results are stored
+*cd [insert path]
 
 //Analyse datasets containing simulation results
 foreach type in simple complex {
