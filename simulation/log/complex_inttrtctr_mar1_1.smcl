@@ -1,0 +1,79 @@
+{smcl}
+{txt}{sf}{ul off}{.-}
+      name:  {res}<unnamed>
+       {txt}log:  {res}/lustre/scratch/scratch/zcakf79/Stata_output/complex_inttrtctr_mar1_1.smcl
+  {txt}log type:  {res}smcl
+ {txt}opened on:  {res} 7 Feb 2021, 22:54:44
+{txt}
+{com}. 
+. set rng mt64 
+{txt}
+{com}. set rngstream 1
+{txt}rng set to mt64s
+
+{com}. set seed 2387
+{txt}
+{com}. 
+. local R = 1000
+{txt}
+{com}. local n = 2000
+{txt}
+{com}. local m = 10
+{txt}
+{com}. local c = 15
+{txt}
+{com}. 
+. tempname postseed
+{txt}
+{com}. postfile `postseed' str2000(s1 s2) str1100(s3) using "complex_inttrtctr_mar1_rng_1.dta", replace
+{txt}(note: file complex_inttrtctr_mar1_rng_1.dta not found)
+
+{com}. 
+. tempname sim
+{txt}
+{com}. postfile `sim' int(rep) str28(method) float(mcra mderiv b0 bx se0 sex df0 dfx errcode) using complex_inttrtctr_mar1_1, replace
+{txt}(note: file complex_inttrtctr_mar1_1.dta not found)
+
+{com}.                                    
+. qui     {c -(}
+{txt}Simulation running...
+{hline 4}{c +}{hline 3} 1 {hline 3}{c +}{hline 3} 2 {hline 3}{c +}{hline 3} 3 {hline 3}{c +}{hline 3} 4 {hline 3}{c +}{hline 3} 5 
+..................................................    50
+..................................................   100
+..................................................   150
+..................................................   200
+..................................................   250
+..................................................   300
+..................................................   350
+..................................................   400
+..................................................   450
+..................................................   500
+..................................................   550
+..................................................   600
+..................................................   650
+..................................................   700
+..................................................   750
+..................................................   800
+..................................................   850
+..................................................   900
+..................................................   950
+..................................................  1000
+
+{com}. 
+. timer list
+{res}   1:  67443.99 /        1 =   67443.9870
+{txt}
+{com}. 
+. postclose `sim'
+{txt}
+{com}. postclose `postseed'
+{txt}
+{com}. 
+. log close
+      {txt}name:  {res}<unnamed>
+       {txt}log:  {res}/lustre/scratch/scratch/zcakf79/Stata_output/complex_inttrtctr_mar1_1.smcl
+  {txt}log type:  {res}smcl
+ {txt}closed on:  {res} 8 Feb 2021, 17:38:48
+{txt}{.-}
+{smcl}
+{txt}{sf}{ul off}
