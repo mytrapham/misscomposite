@@ -5,13 +5,13 @@ The directory misscomposite/simulation provides Stata code and results for the s
 
 ### Stata code (do folder)
 There are 3 sets of files:
-1. *composite.ado* is a programme which executes a single simulation run (installation of *moremata* [[1]](#1) is required);
-2. Files with naming format *'type'\_'case'\_'miss'\_'i'.do* are do files which create 1000 repetitions of the simulation programme in *composite.ado*;
+1. *compositesim.ado* is a programme which executes a single simulation run (installation of *moremata* [[1]](#1) is required);
+3. Files with naming format *'type'\_'case'\_'miss'\_'i'.do* are do files which create 1000 repetitions of the simulation programme in *composite.ado*;
     -  type: simple, complex;
     - case: noint (case I), intctr (case II), inttrtctr (case III);
     - miss: mcar, mar1, mar2;
     - i: 1, 2 (this is used for parallel running of the do files on UCL's Myriad High Performance Computing cluster in order to create 2000 independent simulation repetitions for each simulation scenario);
-3. *ansim.do* is a do file which analyses the simulation results (installation of *simsum* [[2]](#2) is required).
+4. *ansim.do* is a do file which analyses the simulation results (installation of *simsum* [[2]](#2) is required).
 
 ### Results (output folder)
 1. Datasets containing the simulation results are stored in files with naming format *'type'\_'case'\_'miss'\_'i'.dta*; these files are analysed by *ansim.do*. 
