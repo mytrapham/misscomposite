@@ -1,9 +1,9 @@
 {smcl}
 {txt}{sf}{ul off}{.-}
       name:  {res}<unnamed>
-       {txt}log:  {res}/lustre/scratch/scratch/zcakf79/Stata_output/simple_noint_mar2_1.smcl
+       {txt}log:  {res}/myriadfs/home/zcakf79/Scratch/misscomposite/simple_noint_mar2_1.smcl
   {txt}log type:  {res}smcl
- {txt}opened on:  {res} 5 Feb 2021, 11:29:29
+ {txt}opened on:  {res} 9 Apr 2025, 14:38:17
 {txt}
 {com}. 
 . set rng mt64 
@@ -55,7 +55,7 @@
 
 {com}. 
 . timer list
-{res}   1: 122728.29 /        1 =  122728.2860
+{res}   1:  68609.73 /        1 =   68609.7260
 {txt}
 {com}. 
 . postclose `sim'
@@ -63,9 +63,9 @@
 {com}. 
 . log close
       {txt}name:  {res}<unnamed>
-       {txt}log:  {res}/lustre/scratch/scratch/zcakf79/Stata_output/simple_noint_mar2_1.smcl
+       {txt}log:  {res}/myriadfs/home/zcakf79/Scratch/misscomposite/simple_noint_mar2_1.smcl
   {txt}log type:  {res}smcl
- {txt}closed on:  {res} 6 Feb 2021, 21:34:57
+ {txt}closed on:  {res}10 Apr 2025, 09:41:47
 {txt}{.-}
 {smcl}
 {txt}{sf}{ul off}

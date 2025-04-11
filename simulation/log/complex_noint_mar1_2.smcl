@@ -1,9 +1,9 @@
 {smcl}
 {txt}{sf}{ul off}{.-}
       name:  {res}<unnamed>
-       {txt}log:  {res}/lustre/scratch/scratch/zcakf79/Stata_output/complex_noint_mar1_2.smcl
+       {txt}log:  {res}/myriadfs/home/zcakf79/Scratch/misscomposite/complex_noint_mar1_2.smcl
   {txt}log type:  {res}smcl
- {txt}opened on:  {res} 6 Feb 2021, 23:51:39
+ {txt}opened on:  {res} 9 Apr 2025, 15:17:01
 {txt}
 {com}. 
 . set rng mt64 
@@ -25,7 +25,7 @@
 {com}. 
 . tempname postseed
 {txt}
-{com}. postfile `postseed' str2000(s1 s2) str1100(s3) using "complex_noint_mar1_rng_2.dta", replace
+{com}. postfile `postseed' int(rep) str2000(s1 s2) str1100(s3) using "complex_noint_mar1_rng_2.dta", replace
 {txt}(note: file complex_noint_mar1_rng_2.dta not found)
 
 {com}. 
@@ -61,7 +61,7 @@
 
 {com}. 
 . timer list
-{res}   1:  85512.91 /        1 =   85512.9130
+{res}   1: 100340.90 /        1 =  100340.9040
 {txt}
 {com}. 
 . postclose `sim'
@@ -71,9 +71,9 @@
 {com}. 
 . log close
       {txt}name:  {res}<unnamed>
-       {txt}log:  {res}/lustre/scratch/scratch/zcakf79/Stata_output/complex_noint_mar1_2.smcl
+       {txt}log:  {res}/myriadfs/home/zcakf79/Scratch/misscomposite/complex_noint_mar1_2.smcl
   {txt}log type:  {res}smcl
- {txt}closed on:  {res} 7 Feb 2021, 23:36:56
+ {txt}closed on:  {res}10 Apr 2025, 19:09:25
 {txt}{.-}
 {smcl}
 {txt}{sf}{ul off}

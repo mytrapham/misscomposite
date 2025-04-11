@@ -1,9 +1,9 @@
 {smcl}
 {txt}{sf}{ul off}{.-}
       name:  {res}<unnamed>
-       {txt}log:  {res}/lustre/scratch/scratch/zcakf79/Stata_output/complex_inttrtctr_mar2_1.smcl
+       {txt}log:  {res}/myriadfs/home/zcakf79/Scratch/misscomposite/complex_inttrtctr_mar2_1.smcl
   {txt}log type:  {res}smcl
- {txt}opened on:  {res} 8 Feb 2021, 01:24:31
+ {txt}opened on:  {res} 9 Apr 2025, 15:48:22
 {txt}
 {com}. 
 . set rng mt64 
@@ -25,7 +25,7 @@
 {com}. 
 . tempname postseed
 {txt}
-{com}. postfile `postseed' str2000(s1 s2) str1100(s3) using "complex_inttrtctr_mar2_rng_1.dta", replace
+{com}. postfile `postseed' int(rep) str2000(s1 s2) str1100(s3) using "complex_inttrtctr_mar2_rng_1.dta", replace
 {txt}(note: file complex_inttrtctr_mar2_rng_1.dta not found)
 
 {com}. 
@@ -61,7 +61,7 @@
 
 {com}. 
 . timer list
-{res}   1:  73259.39 /        1 =   73259.3930
+{res}   1:  76582.61 /        1 =   76582.6130
 {txt}
 {com}. 
 . postclose `sim'
@@ -71,9 +71,9 @@
 {com}. 
 . log close
       {txt}name:  {res}<unnamed>
-       {txt}log:  {res}/lustre/scratch/scratch/zcakf79/Stata_output/complex_inttrtctr_mar2_1.smcl
+       {txt}log:  {res}/myriadfs/home/zcakf79/Scratch/misscomposite/complex_inttrtctr_mar2_1.smcl
   {txt}log type:  {res}smcl
- {txt}closed on:  {res} 8 Feb 2021, 21:45:30
+ {txt}closed on:  {res}10 Apr 2025, 13:04:45
 {txt}{.-}
 {smcl}
 {txt}{sf}{ul off}
