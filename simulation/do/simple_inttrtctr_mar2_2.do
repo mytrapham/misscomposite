@@ -5,9 +5,10 @@
 *** SIMPLE INTTRTCTR MAR2 ***
 ********************************************************************************
 
-version 15
+version 15.1
 
-cd /lustre/scratch/scratch/zcakf79/Stata_output/
+cd /myriadfs/home/zcakf79/Scratch/misscomposite/
+adopath ++ /myriadfs/home/zcakf79/Scratch/misscomposite/
 
 clear *
 macro drop _all

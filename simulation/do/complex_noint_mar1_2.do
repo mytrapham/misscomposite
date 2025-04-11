@@ -5,9 +5,10 @@
 *** COMPLEX NOINT MAR1 ***
 ********************************************************************************
 
-version 15
+version 15.1
 
-cd /lustre/scratch/scratch/zcakf79/Stata_output/
+cd /myriadfs/home/zcakf79/Scratch/misscomposite/
+adopath ++ /myriadfs/home/zcakf79/Scratch/misscomposite/
 
 clear *
 macro drop _all
@@ -25,7 +26,7 @@ local m = 10
 local c = 15
 
 tempname postseed
-postfile `postseed' str2000(s1 s2) str1100(s3) using "complex_noint_mar1_rng_2.dta", replace
+postfile `postseed' int(rep) str2000(s1 s2) str1100(s3) using "complex_noint_mar1_rng_2.dta", replace
 
 tempname sim
 postfile `sim' int(rep) str28(method) float(mcra mderiv b0 bx se0 sex df0 dfx errcode) using complex_noint_mar1_2, replace
@@ -38,7 +39,7 @@ qui	{
 		clear
 		noi _dots `r' 0
 		
-		post `postseed' (substr(c(rngstate),1,2000)) (substr(c(rngstate),2001,2000)) (substr(c(rngstate),4001,.))
+		post `postseed' (`r') (substr(c(rngstate),1,2000)) (substr(c(rngstate),2001,2000)) (substr(c(rngstate),4001,.))
 				
 		//Outcome types: 1-simple; 2-complex
 		//Cases: 1-case I (noint); 2-case II (intctr); 3-case III (inttrtctr)
